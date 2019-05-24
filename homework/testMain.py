@@ -4,14 +4,12 @@
 # datetime:2019/5/11 8:46 PM
 # software: PyCharm
 
-import sys
-
-sys.path.append("/Users/hongwei/PycharmProjects/AppiumTest")
-
 import pytest
 from util.appiumUtil import appiumUtilClass
 from appium import webdriver
 import os
+from util.appDriver import initAppDriver
+from config import config
 
 
 class TestXueqiuLogin(object):
@@ -33,7 +31,7 @@ class TestXueqiuLogin(object):
 
     def setup_method(self):
         print("启动app")
-        self.driver = TestXueqiuLogin.restart_app()
+        self.driver = initAppDriver(config.REMOTE_DRIVER_URL,config.CAPS)
         return self.driver
 
     def teardown_method(self):
@@ -87,7 +85,8 @@ class TestXueqiuLogin(object):
         #点击微信登录
         wechat_btn=self.driver.find_element_by_xpath("//*[contains(@text,'微信登录')]")
         wechat_btn.click()
-        #识别toast提示，未安装微信
+        #识别toast提示包含"未安装微信"
+        appiumUtilClass.wait_until(self.driver,"//*[contains(@text,'未安装微信')]")
 
     @pytest.mark.case2
     def test_homework3_verify_code_login(self,enter_loginPage):

@@ -4,11 +4,15 @@
 # datetime:2019/5/13 9:41 AM
 # software: PyCharm
 from appium import webdriver
+from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.common.touch_action import TouchAction
 import time
-import pytest
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
+from appium.webdriver.webdriver import By
 
-class appiumUtilClass():
+
+class appiumUtilClass:
 
     # 左右滑动方法封装
     @classmethod
@@ -47,3 +51,19 @@ class appiumUtilClass():
             # driver.swipe(int(__width * 0.3), int(__height * 0.8), int(__width * 0.3),
             #              int(__height * 0.2), 1)
             time.sleep(2)
+
+    # 封装等待
+    @classmethod
+    def wait_until(self,driver:webdriver,By:str,limit=10,way="XPATH"):
+        __wait = WebDriverWait(driver, limit)
+        try:
+            if way=="XPATH":
+                __wait.until(EC.presence_of_element_located((MobileBy.XPATH,By)))
+                print("find %s"%By)
+            else:
+                __wait.until(EC.presence_of_element_located((MobileBy.ID,By)))
+                print("find %s" % By)
+        except:
+            print("not find %s in %s second"%(By,limit))
+
+
