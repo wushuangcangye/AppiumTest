@@ -3,9 +3,6 @@
 # author:hongwei
 # datetime:2019/5/22 1:19 PM
 # software: PyCharm
-
-import sys
-sys.path.append("/Users/hongwei/PycharmProjects/AppiumTest")
 from config import config
 from util.appiumUtil import appiumUtilClass
 from util.appDriver import initAppDriver
@@ -36,6 +33,7 @@ class TestWebView(object):
         __fund_btn=self.driver.find_element_by_id(jiaoyiPage._fund_id)
         __fund_btn.click()
     def teardown_method(self):
+        time.sleep(3)
         self.driver.back()
 
     @classmethod
@@ -45,17 +43,18 @@ class TestWebView(object):
     def test_switch_context(self):
         print(self.driver.contexts)
         print(self.driver.current_context)
-        time.sleep(5)
+        time.sleep(3)
         self.driver.switch_to.context(self.driver.contexts[-1])
-        time.sleep(5)
+        time.sleep(3)
         print(self.driver.current_context)
         print(self.driver.window_handles)
         print(self.driver.current_window_handle)
-        time.sleep(5)
+        time.sleep(3)
+        # self.driver.find_element_by_xpath("//div[@id='my-money']//button[@class='dj-button blank']").click()
         # dj_btn=self.driver.find_element_by_class_name("dj-button")
-        dj_btn=self.driver.find_element_by_xpath("//*[@id='my-money']/div[2]/div[2]/button[2]")
+        self.driver.find_element_by_xpath("//div[@id='my-money']/div[2]/div[2]/button[2]").click()
         # dj_btn=self.driver.find_element_by_css_selector(".dj-button.blank")
-        dj_btn.click()
+        # dj_btn.click()
 
 
     """
