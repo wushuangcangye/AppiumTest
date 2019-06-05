@@ -1,0 +1,24 @@
+go_to_choiceBySelf:
+  - locator: 自选
+    by: xpathName
+    action: click
+
+go_to_dynamics:
+  - locator: 动态
+    by: xpathName
+    action: click
+
+go_to_price:
+  - locator: 行情
+    by: xpathName
+    action: click
+
+go_to_trade:
+  - locator: 交易
+    by: xpathName
+    action: click
+
+go_to_search:
+  - locator: home_search
+    by: id
+    action: click

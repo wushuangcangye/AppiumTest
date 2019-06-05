@@ -1,0 +1,12 @@
+#点击沪深
+goToHS:
+  - by: xpathName
+    locator: 沪深
+    action: click
+
+# 获取深证成指指数
+get_HZCZ_price:
+  - by: xpath
+    locator: //*[contains(@text,'深证成指')]/../ *[contains(@resource-id, 'index_price')]
+    action: get_attribute
+    key: text

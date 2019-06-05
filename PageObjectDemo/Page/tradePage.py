@@ -3,5 +3,10 @@
 # author:hongwei
 # datetime:2019/5/27 10:05 AM
 # software: PyCharm
-def tradePage():
+
+#交易页
+from PageObjectDemo.Page.basePage import basePage
+
+
+class tradePage(basePage):
     pass

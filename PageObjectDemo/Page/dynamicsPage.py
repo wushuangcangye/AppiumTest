@@ -3,5 +3,10 @@
 # author:hongwei
 # datetime:2019/5/27 10:04 AM
 # software: PyCharm
-def dynamicsPage():
+
+#动态页
+from PageObjectDemo.Page.basePage import basePage
+
+
+class dynamicsPage(basePage):
     pass

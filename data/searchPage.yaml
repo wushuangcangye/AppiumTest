@@ -1,0 +1,63 @@
+# 输入搜索信息
+sendSearchKey:
+  - locator: //*[contains(@resource-id,'search_input_text')]
+    by: xpath
+    action: click
+  - locator: //*[contains(@resource-id,'search_input_text')]
+    by: xpath
+    action: sendKeys
+    text: $text
+
+# 点击综合
+searchResult_goto_Comprehensive:
+  - locator: "综合"
+    by: xpathName
+    action: click
+
+# 点击股票
+searchResult_goto_stock:
+  - locator: "股票"
+    by: xpathName
+    action: click
+
+# 点击组合
+searchResult_goto_combination:
+  - locator: "组合"
+    by: xpathName
+    action: click
+
+# 点击用户
+searchResult_goto_user:
+  - locator: "用户"
+    by: xpathName
+    action: click
+
+# 将股票加入关注
+add_stockCode_to_fllowed:
+  - locator: //*[contains(@resource-id,'stockCode') and contains(@text,'%s')]/../../..//*[contains(@resource-id,'follow_btn')]
+    by: xpath
+    action: click
+
+# 将股票从fllowed中移除
+remove_stockCode_fllowed:
+  - locator: //*[contains(@text,'%s') and contains(@resource-id,'stockCode')]/../../..//*[contains(@resource-id,'followed_btn')]
+    by: xpath
+    action: click
+
+# 判断股票是否已被关注
+stockCode_in_fllow:
+  - locator:
+    by:
+    action:
+
+# 关注用户
+add_user_to_fllowed:
+  - locator: //*[contains(@resource-id,'user_name') and contains(@text,'%s')]/../..//*[contains(@resource-id,'follow_btn')])
+    by: xpath
+    action: click
+
+# 讲用户移除关注
+remove_user_fllowed:
+  - locator: //*[contains(@text,'%s') and contains(@resource-id,'user_name')]/../../..//*[contains(@resource-id,'followed_btn')]
+    by: xpath
+    action: click

@@ -1,0 +1,19 @@
+goto_stockPage:
+  - locator: 股票
+    by: xpathName
+    action: click
+
+get_price_by_name:
+  - locator: //*[contains(@text,'%s')]/../../..//*[contains(@resource-id,'portfolio_currentPrice')]
+    by: xpath
+    action: get_text
+
+goto_fundPage:
+  - locator: 基金
+    by: xpathName
+    action: click
+
+goto_cubePage:
+  - locator: 组合
+    by: xpathName
+    action: click

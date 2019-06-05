@@ -1,0 +1,30 @@
+BASE:
+  REMOTE_DRIVER_URL: http://127.0.0.1:4723/wd/hub
+  IMPLICITLY_TIME: 10
+
+PLATFORM: android
+
+install_App:
+  caps:
+    android:
+      deviceName: MuMu模拟器
+      uuid: emulator-5554
+      app: /Users/hongwei/Downloads/xueqiu_wxdialog.apk
+      platformName: android
+      appPackage: com.xueqiu.android
+      appActivity: .view.WelcomeActivityAlias
+      autoGrantPermissions: true
+
+restart_App:
+  caps:
+    android:
+      deviceName: MuMu模拟器
+      uuid: emulator-5554
+      platformName: android
+      appPackage: com.xueqiu.android
+      appActivity: .view.WelcomeActivityAlias
+      autoGrantPermissions: true
+      noReset: true
+      unicodeKeyboard: true
+      resetKeyboard: true
+      automationName: UiAutomator2

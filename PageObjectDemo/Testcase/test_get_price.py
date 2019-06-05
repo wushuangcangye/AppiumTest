@@ -29,6 +29,8 @@ class TestGetPrice:
         assert price > 869
         assert choiceBySelfPage.find_by_name("基金").text in '基金'
 
+
+
     @allure.story('测试搜索模块')
     @allure.story('股票搜索')
     @pytest.mark.parametrize('searchName,code', [
@@ -40,8 +42,8 @@ class TestGetPrice:
         ComprehensivePage = self.homePage.go_to_search().sendSearchKey(searchName).searchResult_goto_Comprehensive()
         time.sleep(1)
         # 如果已经关注，则移除
-        # if ComprehensivePage.stockCode_in_fllow(code):
-        ComprehensivePage.remove_stockCode_fllowed(code)
+        if ComprehensivePage.stockCode_in_fllow(code):
+            ComprehensivePage.remove_stockCode_fllowed(code)
         # 点击关注
         ComprehensivePage.add_stockCode_to_fllowed(code)
         # 点击取消,页面归位
